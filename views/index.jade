@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	div.inputBox
+		h1 Input
+		form(action="/createScript", method="post")
+			input(type="text", name="scriptBody")
+			input(type="submit", value="Submit")
+
+	div.outputBox
+		h1 Output
+		- if (scriptResult)
+			p= scriptResult

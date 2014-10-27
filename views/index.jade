@@ -1,5 +1,8 @@
 extends layout
 
+block scripts
+	script(type="text/javascript", src='/javascripts/drawRect.js')
+		
 block content
 	div.inputBox
 		h1 Input
@@ -8,6 +11,12 @@ block content
 			input(type="submit", value="Submit")
 
 	div.outputBox
+		h1 Script
+		- if (text)
+			p= text
 		h1 Output
 		- if (scriptResult)
 			p= scriptResult
+
+	canvas(id="myCanvas", width="300", height="150", style="border:1px solid #d3d3d3;")
+	

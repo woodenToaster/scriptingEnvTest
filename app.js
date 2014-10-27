@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var createScript = require('./routes/createScript');
 
 var app = express();
 
@@ -22,17 +23,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.json());       
-app.use(express.urlencoded());
 
 app.use('/', routes);
 app.use('/users', users);
-
-app.post('/createScript', function(req, res) {
-  
-  console.log(JSON.stringify(req.body));
-  res.send("HI");
-});
+app.use('/createScript', createScript);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

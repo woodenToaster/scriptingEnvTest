@@ -1,22 +1,12 @@
 extends layout
 
 block scripts
+	script(src='//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
 	script(type="text/javascript", src='/javascripts/drawRect.js')
-		
-block content
-	div.inputBox
-		h1 Input
-		form(action="/createScript", method="post")
-			input(type="text", name="scriptBody")
-			input(type="submit", value="Submit")
+	
 
-	div.outputBox
-		h1 Script
-		- if (text)
-			p= text
-		h1 Output
-		- if (scriptResult)
-			p= scriptResult
+block content
+	h1 Click the rectangle and enter a color in hex to see it change.
 
 	canvas(id="myCanvas", width="300", height="150", style="border:1px solid #d3d3d3;")
 	
